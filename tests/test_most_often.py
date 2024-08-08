@@ -20,27 +20,34 @@ def test_add_new_item():
 
 
 
-# -------LOOP get most often - count number of occurences of item
-def test_get_most_often():
-    pass
+# ------- IF CONDITION MET --- item1 has most occurences = highest_item
+# ------- one set of duplicates = 1 winner
+def test_get_most_often_winner():
+    often = MostOften([])
+    often.add_new("item1")
+    often.add_new("item1")
+    often.add_new("item2")
+    assert often.get_most_often() == "item1"
+    
 
 
-# ------- if condition 
-# ------- set count
-# ------- set highest count
-# ------- set highest items list
-# ------- get count of current item
-# ------- check if greater than count
-# ------- assert added to highest_item
+# ------- ELSE CONDITION -- no clear winner for all other conditions
+# ------- two sets of duplicates = no winner
+def test_get_most_often_no_clear_winner():
+    often = MostOften([])
+    often.add_new("item1")
+    often.add_new("item1")
+    often.add_new("item2")
+    often.add_new("item2")
+    assert often.get_most_often() == "no clear winner"
+    
+
+# ------ EMPTY LIST
+def test_get_most_often_with_nothing():
+    often = MostOften([])
+    assert often.get_most_often() == "no clear winner"
 
 
 
-
-# ------- elif condition 
-# ------- set count 8
-# ------- set highest count 8
-# ------- set highest items list
-# ------- count = highest count
-# ------- assert added item to highest_item
 
 

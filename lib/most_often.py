@@ -1,15 +1,16 @@
-# File: lib/most_often.py
-
 class MostOften:
     def __init__(self, starting_list):
         self.starting_list = starting_list
+        print(starting_list)
 
     def add_new(self, new_item):
         self.starting_list.append(new_item)
+        print(new_item)
 
     def get_most_often(self):
         # use set() to create a list of unique items
         unique_items = set(self.starting_list)
+        print(unique_items)
 
         # set up our highest recorded variables
         highest_count = 0
@@ -22,13 +23,18 @@ class MostOften:
             if count > highest_count:
                 highest_count = count
                 highest_items = [item]
+                print(highest_items)
+
             # but if we've found an equally high count...
             elif count == highest_count:
                 highest_items.append(item)
+                print(item)
 
         # if we have a clear winner, return it
         if len(highest_items) == 1:
+            print(highest_items)
             return highest_items[0]
+        
         # otherwise we'll say there's "no clear winner"
         else:
             return "no clear winner"
